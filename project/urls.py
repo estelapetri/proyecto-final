@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path
 from ejemplo.views import (index, saludar_a, sumar,
                            buscar, mostrar_familiares,
-                           BuscarFamiliar, AltaFamiliar)
-
+                           BuscarFamiliar, AltaFamiliar,
+                        ActualizarFamiliar, BorrarFamiliar)
+                           
+#from blog.views import index as blog_index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +31,7 @@ urlpatterns = [
     path('mi-familia/', mostrar_familiares),
     path('mi-familia/buscar', BuscarFamiliar.as_view()),#as_view es un metodo de clase, transforma la clase en funcion
     path('mi-familia/alta', AltaFamiliar.as_view()),
+     # EL paramatro pk hace referencia al identificador único en la base de datos para Familiar.
+    path('mi-familia/actualizar/<int:pk>', ActualizarFamiliar.as_view()), # NUEVA RUTA PARA BUSCAR FAMILIAR
+    path('mi-familia/borrar/<int:pk>', BorrarFamiliar.as_view()),
 ]

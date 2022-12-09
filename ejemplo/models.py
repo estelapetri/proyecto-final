@@ -9,5 +9,5 @@ class Familiar(models.Model):
     def __str__(self):
         return f"{self.nombre},{self.direccion},{self.numero_pasaporte},{self.id}"
 
-#class Dummy(models.Moldel):
+
     nombre = models.CharField(max_length=100)
